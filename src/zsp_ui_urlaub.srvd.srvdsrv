@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition Urlaub'
+define service ZSP_UI_URLAUB {
+  expose zsp_c_urlaub as Urlaub;
+}
