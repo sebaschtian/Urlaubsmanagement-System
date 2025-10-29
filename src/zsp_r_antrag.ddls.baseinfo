@@ -6,7 +6,9 @@
 "ZSP_ANTRAG_A"
 ],
 "ASSOCIATED":
-[],
+[
+"ZSP_R_MITARBEITER"
+],
 "BASE":
 [],
 "ANNO_REF":

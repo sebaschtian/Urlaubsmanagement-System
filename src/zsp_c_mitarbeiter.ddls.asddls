@@ -1,17 +1,18 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Protection view urlaub'
+@EndUserText.label: 'Projection view Mitarbeiter'
 @Search.searchable: true
 @Metadata.allowExtensions: true
-define root view entity ZSP_C_URLAUB
-  as projection on ZSP_R_URLAUB
+define root view entity ZSP_C_MITARBEITER
+  as projection on ZSP_R_MITARBEITER
 {
-  key UrlaubID,
-      Mitarbeiter,
-      Jahr,
-      Urlaubstage,
+  key MitarbeiterID,
+      Mitarbeiternummer,
+      Vorname,
+      Nachname,
+      Eintrittsdatum,
       @Search.defaultSearchElement: true
       @Search.fuzzinessThreshold: 0.7
-
+      
       /*AD DATA*/
       LastChangedBy,
       CreatedBy,

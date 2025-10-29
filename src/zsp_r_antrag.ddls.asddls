@@ -1,11 +1,29 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Antrags-daten'
-define root view  entity ZSP_R_ANTRAG
+define view entity ZSP_R_ANTRAG
   as select from zsp_antrag_a
+  
+  association to ZSP_R_MITARBEITER 
+    as _Genehmigender on $projection.Genehmigender = _Genehmigender.MitarbeiterID 
+  
+  association to ZSP_R_MITARBEITER 
+    as _Antragsteller on $projection.Antragsteller = _Antragsteller.MitarbeiterID 
 
 {
-    key antrag_uuid as Antrag_ID,
-    /*key client as Mitarbeiter,*/
-        antrag_date as Antrag_Datum,
-        urlaub_uuid as Urlaub_ID
+  key antrag_uuid     as Antrag_ID,
+      antragsteller   as Antragsteller,
+      genehmigender   as Genehmigender,
+      startdatum      as Startdatum,
+      enddatum        as Enddatum,
+      tage            as Urlaubstage,
+      kommentar       as Kommentar,
+      status          as Status,
+      /* Administrative Daten */
+      last_changed_by as LastChangedBy,
+      created_by      as CreatedBy,
+      created_at      as CreatedAt,
+      last_changed_at as LastChangedAt,
+      /*Association*/
+      _Antragsteller,
+      _Genehmigender
 }

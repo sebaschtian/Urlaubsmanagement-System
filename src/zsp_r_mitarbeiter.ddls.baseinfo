@@ -3,12 +3,10 @@
 {
 "FROM":
 [
-"ZSP_URLAUB_A"
+"ZSP_MA_A"
 ],
 "ASSOCIATED":
-[
-"ZSP_R_MITARBEITER"
-],
+[],
 "BASE":
 [],
 "ANNO_REF":
