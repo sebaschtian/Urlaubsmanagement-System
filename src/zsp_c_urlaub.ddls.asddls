@@ -2,7 +2,7 @@
 @EndUserText.label: 'Protection view urlaub'
 @Search.searchable: true
 @Metadata.allowExtensions: true
-define root view entity ZSP_C_URLAUB
+define view entity ZSP_C_URLAUB
   as projection on ZSP_R_URLAUB
 {
   key UrlaubID,

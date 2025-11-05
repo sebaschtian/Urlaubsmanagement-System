@@ -3,8 +3,8 @@
 define view entity ZSP_R_ANTRAG
   as select from zsp_antrag_a
   
-  association to ZSP_R_MITARBEITER 
-    as _Genehmigender on $projection.Genehmigender = _Genehmigender.MitarbeiterID 
+  association to parent ZSP_R_MITARBEITER 
+    as _Genehmigender on $projection.Genehmigender = _Genehmigender.MitarbeiterID
   
   association to ZSP_R_MITARBEITER 
     as _Antragsteller on $projection.Antragsteller = _Antragsteller.MitarbeiterID 
