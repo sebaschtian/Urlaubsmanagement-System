@@ -2,7 +2,7 @@
 @EndUserText.label: 'Projection view ANTRAG'
 @Search.searchable: true
 @Metadata.allowExtensions: true
-define root view entity ZSP_C_ANTRAG
+define view entity ZSP_C_ANTRAG
   as projection on ZSP_R_ANTRAG
 {
   key Antrag_ID,
