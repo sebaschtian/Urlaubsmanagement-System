@@ -10,6 +10,8 @@ CLASS zsp_cl_urlaub_generator_1 IMPLEMENTATION.
     DATA urlaube TYPE TABLE OF zsp_urlaub_a.
     data antrag type zsp_antrag_a.
     data antraege type table of zsp_antrag_a.
+    data ma type zsp_ma_a.
+    data mas type table of zsp_ma_a.
 
     "Delete Urlaube"
     DELETE FROM ZSP_urlaub_a.
@@ -18,6 +20,25 @@ CLASS zsp_cl_urlaub_generator_1 IMPLEMENTATION.
     "Delete Anträge"
     delete from zsp_antrag_a.
     out->write( |Deleted Antraege: { sy-dbcnt }| ).
+
+    "Delete Mitarbeiter"
+    delete from zsp_ma_a.
+    out->write( |Deleted Mitarbeiter: { sy-dbcnt }| ).
+
+    "Demodaten Mitarbeiter erstellen"
+    "Mitarbeiter 1"
+    ma-mitarbeiter_uuid = cl_system_uuid=>create_uuid_x16_static(  ).
+    ma-client = sy-uname.
+    ma-mitarbeiter_nummer = 1.
+    ma-vorname = 'Hans'.
+    ma-nachname = 'Meier'.
+    ma-eintrittsdatum = '20000501'.
+    "Administrative Daten"
+    ma-last_changed_by = 'GENERATOR'.
+    ma-created_by = 'GENERATOR'.
+    get time STAMP FIELD ma-created_at.
+    get TIME STAMP FIELD ma-last_changed_at.
+    append ma to mas.
 
     "Demodaten Urlaubanspruch erstellen"
     "Urlaub 1: Hans Meier 2022"
@@ -126,6 +147,20 @@ CLASS zsp_cl_urlaub_generator_1 IMPLEMENTATION.
         GET TIME STAMP FIELD antrag-last_changed_at.
     APPEND antrag TO antraege.
 
+    "Mitarbeiter 2"
+    ma-mitarbeiter_uuid = cl_system_uuid=>create_uuid_x16_static(  ).
+    ma-client = sy-uname.
+    ma-mitarbeiter_nummer = 2.
+    ma-vorname = 'Lisa'.
+    ma-nachname = 'Müller'.
+    ma-eintrittsdatum = '20100701'.
+    "Administrative Daten"
+    ma-last_changed_by = 'GENERATOR'.
+    ma-created_by = 'GENERATOR'.
+    get time STAMP FIELD ma-created_at.
+    get TIME STAMP FIELD ma-last_changed_at.
+    append ma to mas.
+
     "Urlaub 3: Lisa Müller 2023"
     urlaub-urlaub_uuid = cl_system_uuid=>create_uuid_x16_static( ).
     urlaub-antragsteller = sy-uname.
@@ -138,6 +173,20 @@ CLASS zsp_cl_urlaub_generator_1 IMPLEMENTATION.
         GET TIME STAMP FIELD urlaub-created_at.
         GET TIME STAMP FIELD urlaub-last_changed_at.
     APPEND urlaub TO urlaube.
+
+    "Mitarbeiter 3"
+    ma-mitarbeiter_uuid = cl_system_uuid=>create_uuid_x16_static(  ).
+    ma-client = sy-uname.
+    ma-mitarbeiter_nummer = 3.
+    ma-vorname = 'Petra'.
+    ma-nachname = 'Schmid'.
+    ma-eintrittsdatum = '20231001'.
+    "Administrative Daten"
+    ma-last_changed_by = 'GENERATOR'.
+    ma-created_by = 'GENERATOR'.
+    get time STAMP FIELD ma-created_at.
+    get TIME STAMP FIELD ma-last_changed_at.
+    append ma to mas.
 
     "Urlaub 4: Petra Schmid"
     urlaub-urlaub_uuid = cl_system_uuid=>create_uuid_x16_static( ).
@@ -171,11 +220,15 @@ CLASS zsp_cl_urlaub_generator_1 IMPLEMENTATION.
 
     "Urlaube Einfügen"
     INSERT ZSP_urlaub_a FROM TABLE @urlaube.
-    out->write( |INSERT Urlaube: { sy-dbcnt }| ).
+    out->write( |Insert Urlaube: { sy-dbcnt }| ).
 
     "Anträge einfügen"
     insert zsp_antrag_a from table @antraege.
-    out->write( |insert Antraege: { sy-dbcnt }| ).
+    out->write( |Insert Antraege: { sy-dbcnt }| ).
+
+    "Mitarbeiter einfügen"
+    insert zsp_ma_a from table @mas.
+    out->write( |Insert Mitarbeiter: { sy-dbcnt }| ).
   ENDMETHOD.
 ENDCLASS.
 
