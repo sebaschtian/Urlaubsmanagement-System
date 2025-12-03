@@ -3,7 +3,7 @@
 define root view entity ZSP_R_MITARBEITER
   as select from zsp_ma_a
   
-  composition [0..*] of ZSP_R_URLAUB as _Urlaub
+  composition [1..*] of ZSP_R_URLAUB as _Urlaub
   composition [0..*] of ZSP_R_ANTRAG as _Antrag
   
 {

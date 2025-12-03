@@ -1,24 +1,24 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Projection view ANTRAG'
-@Search.searchable: true
-@Metadata.allowExtensions: true
 define view entity ZSP_C_ANTRAG
   as projection on ZSP_R_ANTRAG
 {
   key Antrag_ID,
+      Antragsteller,
       Genehmigender,
       Startdatum,
       Enddatum,
       Urlaubstage,
       Kommentar,
       Status,
-      @Search.defaultSearchElement: true
-      @Search.fuzzinessThreshold: 0.7
 
       /*AD DATA*/
       LastChangedBy,
       CreatedBy,
       CreatedAt,
-      LastChangedAt
+      LastChangedAt,
+      
+      /*Associations*/
+      _Mitarbeiter : redirected to parent ZSP_C_MITARBEITER
 
 }

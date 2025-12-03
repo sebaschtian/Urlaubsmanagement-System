@@ -4,7 +4,8 @@ define view entity ZSP_R_URLAUB
   as select from zsp_urlaub_a
   
   association to parent ZSP_R_MITARBEITER 
-    as _Mitarbeiter on $projection.Mitarbeiter = _Mitarbeiter.MitarbeiterID
+    as _Mitarbeiter on $projection.UrlaubID
+    = _Mitarbeiter.MitarbeiterID
 
 {
   key urlaub_uuid     as UrlaubID,

@@ -1,0 +1,39 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo:
+{ 
+    typeNamePlural: 'Mitarbeiter',
+    typeName: 'Mitarbeiter',
+    title.value: 'Mitarbeiternummer'
+}
+annotate entity ZSP_C_MITARBEITER with 
+{
+      /* Facets */
+  @UI.facet:
+  [
+    { position: 10, targetQualifier: 'BookingDetails', label: 'Booking Details', type: #FIELDGROUP_REFERENCE },
+    { position: 20, targetQualifier: 'AdminData', label: 'Administrative Data', type: #FIELDGROUP_REFERENCE }
+  ]
+
+  /* Fields */
+  @UI.fieldGroup: [{ position: 10, qualifier: 'AdminData' }]
+  MitarbeiterID;
+
+  @UI.fieldGroup: [{ position: 20, qualifier: 'AdminData' }]
+  Mitarbeiternummer;
+
+  @UI.lineItem: [{ position: 10 }]
+  @UI.fieldGroup: [{ position: 10, qualifier: 'BookingDetails' }]
+  Vorname;
+
+  @UI.lineItem: [{ position: 20 }]
+  @UI.fieldGroup: [{ position: 20, qualifier: 'BookingDetails' }]
+  Nachname;
+
+  @UI.lineItem: [{ position: 30 }]
+  @UI.fieldGroup: [{ position: 30, qualifier: 'BookingDetails' }]
+  Eintrittsdatum;
+
+//  CurrencyCode;
+    
+    
+}

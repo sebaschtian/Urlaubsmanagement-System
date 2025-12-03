@@ -1,0 +1,5 @@
+define service ZAAAM_SB_ART_001 {
+  expose ZSP_C_URLAUB      as Urlaub;
+  expose ZSP_C_ANTRAG      as Antrag;
+  expose ZSP_C_MITARBEITER as Mitarbeiter;
+}

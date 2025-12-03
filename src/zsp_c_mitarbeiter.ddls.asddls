@@ -17,5 +17,9 @@ define root view entity ZSP_C_MITARBEITER
       LastChangedBy,
       CreatedBy,
       CreatedAt,
-      LastChangedAt
+      LastChangedAt,
+      
+      /*Associations*/
+      _Urlaub : redirected to composition child ZSP_C_URLAUB,
+      _Antrag : redirected to composition child ZSP_C_ANTRAG
 }
