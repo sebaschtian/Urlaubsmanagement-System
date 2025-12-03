@@ -1,7 +1,7 @@
 @Metadata.layer: #CUSTOMER
 @UI.headerInfo:
 {
-  typeNamePlural: 'Urlaub',
+  typeNamePlural: 'Urlaube',
   typeName: 'Urlaub',
   title.value: 'UrlaubID'
 }
@@ -13,6 +13,7 @@ annotate view ZSP_C_URLAUB with
   [
     { position: 10, targetQualifier: 'UrlaubDetails', label: 'Urlaub Details', type: #FIELDGROUP_REFERENCE },
     { position: 20, targetQualifier: 'AdminData', label: 'Administrative Data', type: #FIELDGROUP_REFERENCE }
+    /*{ position: 30, targetElement: '_Mitarbeiter', label: 'Anträge', type: #LINEITEM_REFERENCE}*/
   ]
 
   /* Fields */
@@ -30,13 +31,13 @@ annotate view ZSP_C_URLAUB with
 
   //  CurrencyCode;
   @UI.fieldGroup: [{ position: 20, qualifier: 'AdminData' }]
-  CreatedBy;
+  LastChangedBy;
 
   @UI.fieldGroup: [{ position: 30, qualifier: 'AdminData' }]
   CreatedAt;
 
   @UI.fieldGroup: [{ position: 40, qualifier: 'AdminData' }]
-  LastChangedBy;
+  CreatedBy;
 
   @UI.fieldGroup: [{ position: 50, qualifier: 'AdminData' }]
   LastChangedAt;
