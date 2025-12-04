@@ -1,5 +1,6 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Projection view ANTRAG'
+@Metadata.allowExtensions: true
 define view entity ZSP_C_ANTRAG
   as projection on ZSP_R_ANTRAG
 {

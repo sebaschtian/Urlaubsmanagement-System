@@ -1,5 +1,6 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Protection view urlaub'
+@Metadata.allowExtensions: true
 define view entity ZSP_C_URLAUB
   as projection on ZSP_R_URLAUB
 {
