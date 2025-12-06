@@ -4,12 +4,12 @@ define view entity ZSP_R_ANTRAG
   as select from zsp_antrag_a
   
   association to parent ZSP_R_MITARBEITER 
-    as _Mitarbeiter on $projection.Antrag_ID
+    as _Mitarbeiter on $projection.Antragsteller
     = _Mitarbeiter.MitarbeiterID
 {
   key antrag_uuid     as Antrag_ID,
-      antragsteller   as Antragsteller,
-      genehmigender   as Genehmigender,
+      antragsteller_uuid   as Antragsteller,
+      genehmigender_uuid   as Genehmigender,
       startdatum      as Startdatum,
       enddatum        as Enddatum,
       tage            as Urlaubstage,

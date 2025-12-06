@@ -1,0 +1,28 @@
+projection;
+strict ( 2 );
+
+define behavior for ZSP_C_MITARBEITER alias Mitarbeiter
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Antrag { create; }
+  use association _Urlaub { create; }
+}
+
+define behavior for ZSP_C_ANTRAG alias Antrag
+{
+  use update;
+  use delete;
+
+  use association _Mitarbeiter;
+}
+
+define behavior for ZSP_C_URLAUB alias Urlaub
+{
+  use update;
+  use delete;
+
+  use association _Mitarbeiter;
+}

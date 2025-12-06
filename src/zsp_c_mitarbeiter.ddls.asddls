@@ -3,15 +3,22 @@
 @Search.searchable: true
 @Metadata.allowExtensions: true
 define root view entity ZSP_C_MITARBEITER
+provider contract transactional_query
   as projection on ZSP_R_MITARBEITER
 {
   key MitarbeiterID,
+  
+      @Search.defaultSearchElement: true
       Mitarbeiternummer,
-      Vorname,
-      Nachname,
-      Eintrittsdatum,
       @Search.defaultSearchElement: true
       @Search.fuzzinessThreshold: 0.7
+      Vorname,
+      @Search.defaultSearchElement: true
+      @Search.fuzzinessThreshold: 0.7
+      Nachname,
+      @Search.defaultSearchElement: true
+      Eintrittsdatum,
+
       
       /*AD DATA*/
       LastChangedBy,

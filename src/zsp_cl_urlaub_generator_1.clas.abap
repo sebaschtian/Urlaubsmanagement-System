@@ -43,8 +43,8 @@ CLASS zsp_cl_urlaub_generator_1 IMPLEMENTATION.
     "Demodaten Urlaubanspruch erstellen"
     "Urlaub 1: Hans Meier 2022"
     urlaub-urlaub_uuid = cl_system_uuid=>create_uuid_x16_static( ).
-    urlaub-antragsteller = sy-uname.
-    urlaub-mitarbeiter = 'Hans Meier'.
+    urlaub-antragsteller = |{ ma-vorname } { ma-nachname }|. "geändert"
+    urlaub-mitarbeiter = |{ ma-vorname } { ma-nachname }|. "geändert"
     urlaub-jahr = '2022'.
     urlaub-urlaubstage = 30.
         "Administrative Daten"

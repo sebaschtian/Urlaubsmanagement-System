@@ -1,0 +1,88 @@
+managed implementation in class ZSP_BP_MITARBEITER unique;
+strict ( 2 );
+
+define behavior for ZSP_R_MITARBEITER alias Mitarbeiter
+persistent table zsp_ma_a
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly, numbering : managed ) MitarbeiterID;
+  association _Antrag { create; }
+  association _Urlaub { create; }
+
+  mapping for zsp_ma_a corresponding
+  {
+   MitarbeiterID = mitarbeiter_uuid;
+   Mitarbeiternummer = mitarbeiter_nummer;
+   Vorname = vorname;
+   Nachname = nachname;
+   Eintrittsdatum = eintrittsdatum;
+   LastChangedBy = last_changed_by;
+   CreatedBy = created_by;
+   CreatedAt = created_at;
+   LastChangedAt = last_changed_at;
+  }
+}
+
+define behavior for ZSP_R_ANTRAG alias Antrag
+persistent table zsp_antrag_a
+lock dependent by _Mitarbeiter
+authorization dependent by _Mitarbeiter
+//etag master <field_name>
+{
+  update;
+  delete;
+
+  association _Mitarbeiter;
+
+  field ( readonly ) Antragsteller;
+  field ( readonly, numbering : managed) Antrag_ID;
+
+  mapping for zsp_antrag_a corresponding
+  {
+   Antrag_ID = antrag_uuid;
+   Antragsteller = antragsteller_uuid;
+   Genehmigender = genehmigender_uuid;
+   Startdatum = startdatum;
+   Enddatum = enddatum;
+   Urlaubstage = tage;
+   Kommentar = kommentar;
+   Status = status;
+   LastChangedBy = last_changed_by;
+   CreatedBy = created_by;
+   CreatedAt = created_at;
+   LastChangedAt = last_changed_at;
+  }
+}
+
+define behavior for ZSP_R_URLAUB //alias <alias_name>
+persistent table zsp_urlaub_a
+lock dependent by _Mitarbeiter
+authorization dependent by _Mitarbeiter
+//etag master <field_name>
+{
+  update;
+  delete;
+
+  association _Mitarbeiter;
+
+  field ( readonly, numbering : managed ) UrlaubID;
+  field ( readonly ) Mitarbeiter;
+
+  mapping for zsp_urlaub_a
+  {
+   UrlaubID = urlaub_uuid;
+   Mitarbeiter = mitarbeiter;
+   Jahr = jahr;
+   Urlaubstage = urlaubstage;
+   LastChangedBy = last_changed_by;
+   CreatedBy = created_by;
+   CreatedAt = created_at;
+   LastChangedAt = last_changed_at;
+  }
+}

@@ -16,15 +16,12 @@ annotate entity ZSP_C_ANTRAG with
   ]
 
   /* Fields */
-  @UI.fieldGroup: [{ position: 10, qualifier: 'AdminData' }]
-  bookinguuid;
-
   @UI.fieldGroup: [{ position: 20, qualifier: 'AdminData' }]
   Antrag_ID;
 
   @UI.lineItem: [{ position: 10 }]
   @UI.fieldGroup: [{ position: 10, qualifier: 'BookingDetails' }]
-  bookingid;
+  Urlaubstage;
 
   @UI.lineItem: [{ position: 20 }]
   @UI.fieldGroup: [{ position: 20, qualifier: 'BookingDetails' }]
@@ -44,9 +41,9 @@ annotate entity ZSP_C_ANTRAG with
 
   @UI.lineItem: [{ position: 60 }]
   @UI.fieldGroup: [{ position: 60, qualifier: 'BookingDetails' }]
-  Urlaubstage;
-
-//  CurrencyCode;
-    
-    
+  Status;
+  
+  @UI.lineItem: [{ position: 70 }]
+  @UI.fieldGroup: [{ position: 70, qualifier: 'BookingDetails' }]
+  Kommentar;
 }
