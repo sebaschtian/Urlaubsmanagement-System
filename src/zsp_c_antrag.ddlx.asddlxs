@@ -11,39 +11,39 @@ annotate entity ZSP_C_ANTRAG with
       /* Facets */
   @UI.facet:
   [
-    { position: 10, targetQualifier: 'BookingDetails', label: 'Booking Details', type: #FIELDGROUP_REFERENCE },
+    { position: 10, targetQualifier: 'AntragsDetails', label: 'Antragsdetails', type: #FIELDGROUP_REFERENCE },
     { position: 20, targetQualifier: 'AdminData', label: 'Administrative Data', type: #FIELDGROUP_REFERENCE }
   ]
 
   /* Fields */
-  @UI.fieldGroup: [{ position: 20, qualifier: 'AdminData' }]
+  @UI.fieldGroup: [{ position: 10, qualifier: 'AdminData' }]
   Antrag_ID;
 
   @UI.lineItem: [{ position: 10 }]
-  @UI.fieldGroup: [{ position: 10, qualifier: 'BookingDetails' }]
+  @UI.fieldGroup: [{ position: 10, qualifier: 'AntragsDetails' }]
   Urlaubstage;
 
   @UI.lineItem: [{ position: 20 }]
-  @UI.fieldGroup: [{ position: 20, qualifier: 'BookingDetails' }]
+  @UI.fieldGroup: [{ position: 20, qualifier: 'AntragsDetails' }]
   Startdatum;
 
   @UI.lineItem: [{ position: 30 }]
-  @UI.fieldGroup: [{ position: 30, qualifier: 'BookingDetails' }]
+  @UI.fieldGroup: [{ position: 30, qualifier: 'AntragsDetails' }]
   Antragsteller;
 
   @UI.lineItem: [{ position: 40 }]
-  @UI.fieldGroup: [{ position: 40, qualifier: 'BookingDetails' }]
+  @UI.fieldGroup: [{ position: 40, qualifier: 'AntragsDetails' }]
   Genehmigender;
 
   @UI.lineItem: [{ position: 50 }]
-  @UI.fieldGroup: [{ position: 50, qualifier: 'BookingDetails' }]
+  @UI.fieldGroup: [{ position: 50, qualifier: 'AntragsDetails' }]
   Enddatum;
 
   @UI.lineItem: [{ position: 60 }]
-  @UI.fieldGroup: [{ position: 60, qualifier: 'BookingDetails' }]
+  @UI.fieldGroup: [{ position: 60, qualifier: 'AntragsDetails' }]
   Status;
   
   @UI.lineItem: [{ position: 70 }]
-  @UI.fieldGroup: [{ position: 70, qualifier: 'BookingDetails' }]
+  @UI.fieldGroup: [{ position: 70, qualifier: 'AntragsDetails' }]
   Kommentar;
 }

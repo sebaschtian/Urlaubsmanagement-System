@@ -3,9 +3,11 @@
 define view entity ZSP_R_ANTRAG
   as select from zsp_antrag_a
   
-  association to parent ZSP_R_MITARBEITER 
-    as _Mitarbeiter on $projection.Antragsteller
-    = _Mitarbeiter.MitarbeiterID
+  association to parent ZSP_R_MITARBEITER as _Antragsteller on $projection.Antragsteller = _Antragsteller.MitarbeiterID
+  association [1..1] to ZSP_R_MITARBEITER as _Genehmigender on $projection.Genehmigender = _Genehmigender.MitarbeiterID
+  association [1..1] to ZSP_I_MITARBEITERTEXT as _NameAntragsteller on $projection.Antragsteller = _NameAntragsteller.MitarbeiterUuid
+  association [1..1] to ZSP_I_MITARBEITERTEXT as _NameGenehmigender on $projection.Genehmigender = _NameGenehmigender.MitarbeiterUuid
+  association to ZSP_I_STATUSVH as _StatusText on $projection.Antrag_ID = _StatusText.antrag_uuid
 {
   key antrag_uuid     as Antrag_ID,
       antragsteller_uuid   as Antragsteller,
@@ -22,5 +24,11 @@ define view entity ZSP_R_ANTRAG
       last_changed_at as LastChangedAt,
       
       /*Association*/
-      _Mitarbeiter
+      _Antragsteller,
+      _Genehmigender,
+      
+      
+      _NameAntragsteller.Name as AntragstellerName,
+      _NameGenehmigender.Name as GenehmigenderName,
+      _StatusText.status as StatusText
 }

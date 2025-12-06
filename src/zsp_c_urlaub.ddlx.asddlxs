@@ -28,7 +28,6 @@ annotate view ZSP_C_URLAUB with
   @UI.fieldGroup: [{ position: 20, qualifier: 'UrlaubDetails' }]
   Jahr;
 
-  //  CurrencyCode;
   @UI.fieldGroup: [{ position: 20, qualifier: 'AdminData' }]
   LastChangedBy;
 

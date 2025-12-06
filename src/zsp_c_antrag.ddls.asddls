@@ -5,13 +5,18 @@ define view entity ZSP_C_ANTRAG
   as projection on ZSP_R_ANTRAG
 {
   key Antrag_ID,
+      @Consumption.valueHelpDefinition: [{ entity: {name: 'ZSP_I_MitarbeiterUuidVH', element: 'MitarbeiterID'}  }]
       Antragsteller,
+      AntragstellerName,
       Genehmigender,
+      GenehmigenderName,
       Startdatum,
       Enddatum,
       Urlaubstage,
       Kommentar,
+      @ObjectModel.text.element: [ 'status' ]
       Status,
+      StatusText,
 
       /*AD DATA*/
       LastChangedBy,
@@ -20,6 +25,7 @@ define view entity ZSP_C_ANTRAG
       LastChangedAt,
       
       /*Associations*/
-      _Mitarbeiter : redirected to parent ZSP_C_MITARBEITER
+      _Antragsteller : redirected to parent ZSP_C_MITARBEITER,
+      _Genehmigender : redirected to ZSP_C_MITARBEITER
 
 }

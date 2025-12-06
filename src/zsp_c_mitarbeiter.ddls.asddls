@@ -8,7 +8,7 @@ provider contract transactional_query
 {
   key MitarbeiterID,
   
-      @Search.defaultSearchElement: true
+      
       Mitarbeiternummer,
       @Search.defaultSearchElement: true
       @Search.fuzzinessThreshold: 0.7
@@ -16,7 +16,7 @@ provider contract transactional_query
       @Search.defaultSearchElement: true
       @Search.fuzzinessThreshold: 0.7
       Nachname,
-      @Search.defaultSearchElement: true
+      
       Eintrittsdatum,
 
       
@@ -25,6 +25,8 @@ provider contract transactional_query
       CreatedBy,
       CreatedAt,
       LastChangedAt,
+      
+      MitarbeiterName,
       
       /*Associations*/
       _Urlaub : redirected to composition child ZSP_C_URLAUB,
