@@ -1,22 +1,24 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Projection view ANTRAG'
 @Metadata.allowExtensions: true
+@Search.searchable: true
 define view entity ZSP_C_ANTRAG
   as projection on ZSP_R_ANTRAG
 {
   key Antrag_ID,
-      @Consumption.valueHelpDefinition: [{ entity: {name: 'ZSP_I_MitarbeiterUuidVH', element: 'MitarbeiterID'}  }]
-      Antragsteller,
+     Antragsteller,
+      @Search.defaultSearchElement: true
       AntragstellerName,
+      @Consumption.valueHelpDefinition: [{ entity: {name: 'ZSP_I_MitarbeiterUuidVH', element: 'MitarbeiterID'}  }]
       Genehmigender,
       GenehmigenderName,
       Startdatum,
       Enddatum,
       Urlaubstage,
       Kommentar,
-      @ObjectModel.text.element: [ 'status' ]
+      @Consumption.valueHelpDefinition: [ {entity: { name: 'ZSP_I_StatusVH', element: 'StatusText'} } ]
       Status,
-      StatusText,
+      TextStatus,
 
       /*AD DATA*/
       LastChangedBy,
@@ -27,5 +29,6 @@ define view entity ZSP_C_ANTRAG
       /*Associations*/
       _Antragsteller : redirected to parent ZSP_C_MITARBEITER,
       _Genehmigender : redirected to ZSP_C_MITARBEITER
+      
 
 }

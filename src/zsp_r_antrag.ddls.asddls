@@ -16,6 +16,7 @@ define view entity ZSP_R_ANTRAG
       enddatum        as Enddatum,
       tage            as Urlaubstage,
       kommentar       as Kommentar,
+//      @ObjectModel.text.element: [ 'StatusText' ]
       status          as Status,
       /* Administrative Daten */
       last_changed_by as LastChangedBy,
@@ -28,7 +29,8 @@ define view entity ZSP_R_ANTRAG
       _Genehmigender,
       
       
+      
       _NameAntragsteller.Name as AntragstellerName,
       _NameGenehmigender.Name as GenehmigenderName,
-      _StatusText.status as StatusText
+      _StatusText.status as TextStatus
 }

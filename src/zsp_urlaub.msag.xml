@@ -12,7 +12,25 @@
      <SPRSL>D</SPRSL>
      <ARBGB>ZSP_URLAUB</ARBGB>
      <MSGNR>001</MSGNR>
-     <TEXT>This is a Text Message from &amp;1</TEXT>
+     <TEXT>Zu wenig restliche Urlaubstage vorhanden!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>ZSP_URLAUB</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Enddatum des Urlaubs kann nicht vor dem Startdatum des Urlaubs liegen</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>ZSP_URLAUB</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Dieser Antrag wurde bereits Abgelehnt. Antrag nichtmehr Bearbeitbar.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>ZSP_URLAUB</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Dieser Antrag wurde bereits Zugestimmt. Antrag nichtmehr bearbeitbar.</TEXT>
     </T100>
    </T100>
   </asx:values>

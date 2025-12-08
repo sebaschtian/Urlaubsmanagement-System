@@ -12,5 +12,5 @@ define view ZSP_I_STATUSVH
         when status = 'A' then 'Abgelehnt'
         when status = 'G' then 'Genehmigt'
         else ''
-    end as StatusVH
+    end as StatusText
 }

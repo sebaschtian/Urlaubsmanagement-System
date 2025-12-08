@@ -3,9 +3,10 @@
 define view entity ZSP_R_URLAUB
   as select from zsp_urlaub_a
   
-  association to parent ZSP_R_MITARBEITER 
-    as _Mitarbeiter on $projection.Mitarbeiter
-    = _Mitarbeiter.MitarbeiterID
+  association to parent ZSP_R_MITARBEITER as _Mitarbeiter 
+    on $projection.Mitarbeiter = _Mitarbeiter.MitarbeiterID
+  association [1..1] to ZSP_I_MITARBEITERTEXT as _MitarbeiterText 
+    on $projection.Mitarbeiter = _MitarbeiterText.MitarbeiterUuid
 
 {
   key urlaub_uuid     as UrlaubID,
@@ -20,5 +21,7 @@ define view entity ZSP_R_URLAUB
       last_changed_at as LastChangedAt,
     
       /*Association*/
-      _Mitarbeiter
+      _Mitarbeiter,
+      _MitarbeiterText.Name as MitarbeiterName
+      
 }

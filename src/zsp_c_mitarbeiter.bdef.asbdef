@@ -8,7 +8,7 @@ define behavior for ZSP_C_MITARBEITER alias Mitarbeiter
   use delete;
 
   use association _Antrag { create; }
-  use association _Urlaub { create; }
+  use association _Urlaub;
 }
 
 define behavior for ZSP_C_ANTRAG alias Antrag
@@ -16,13 +16,13 @@ define behavior for ZSP_C_ANTRAG alias Antrag
   use update;
   use delete;
 
-  use association _Mitarbeiter;
+  use association _Antragsteller;
+  use association _Genehmigender;
 }
 
 define behavior for ZSP_C_URLAUB alias Urlaub
 {
-  use update;
-  use delete;
+
 
   use association _Mitarbeiter;
 }

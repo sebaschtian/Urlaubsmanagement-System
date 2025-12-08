@@ -14,36 +14,41 @@ annotate entity ZSP_C_ANTRAG with
     { position: 10, targetQualifier: 'AntragsDetails', label: 'Antragsdetails', type: #FIELDGROUP_REFERENCE },
     { position: 20, targetQualifier: 'AdminData', label: 'Administrative Data', type: #FIELDGROUP_REFERENCE }
   ]
+  _Antragsteller;
 
   /* Fields */
-  @UI.fieldGroup: [{ position: 10, qualifier: 'AdminData' }]
+  @UI.selectionField: [{ position: 10 }]
+  @UI.fieldGroup: [{ position: 10, qualifier: 'AdminData', label: 'Antrag ID'}]
   Antrag_ID;
 
   @UI.lineItem: [{ position: 10 }]
-  @UI.fieldGroup: [{ position: 10, qualifier: 'AntragsDetails' }]
+  @UI.fieldGroup: [{ position: 10, qualifier: 'AntragsDetails', label: 'Urlaubstage' }]
   Urlaubstage;
 
   @UI.lineItem: [{ position: 20 }]
-  @UI.fieldGroup: [{ position: 20, qualifier: 'AntragsDetails' }]
+  @UI.fieldGroup: [{ position: 20, qualifier: 'AntragsDetails', label: 'Startdatum' }]
   Startdatum;
 
+  @UI.selectionField: [{ position: 20 }]
   @UI.lineItem: [{ position: 30 }]
-  @UI.fieldGroup: [{ position: 30, qualifier: 'AntragsDetails' }]
-  Antragsteller;
+  @UI.fieldGroup: [{ position: 30, qualifier: 'AntragsDetails', label: 'Antragsteller' }]
+  AntragstellerName;
 
-  @UI.lineItem: [{ position: 40 }]
-  @UI.fieldGroup: [{ position: 40, qualifier: 'AntragsDetails' }]
-  Genehmigender;
+  @UI.selectionField: [{ position: 30 }]
+  @UI.lineItem: [{ position: 40, label: 'Genehmigender' }]
+  @UI.fieldGroup: [{ position: 40, qualifier: 'AntragsDetails', label: 'Genehmigender' }]
+  GenehmigenderName;
 
   @UI.lineItem: [{ position: 50 }]
-  @UI.fieldGroup: [{ position: 50, qualifier: 'AntragsDetails' }]
+  @UI.fieldGroup: [{ position: 50, qualifier: 'AntragsDetails', label: 'Enddatum' }]
   Enddatum;
 
+  @UI.selectionField: [{ position: 40 }]
   @UI.lineItem: [{ position: 60 }]
-  @UI.fieldGroup: [{ position: 60, qualifier: 'AntragsDetails' }]
+  @UI.fieldGroup: [{ position: 60, qualifier: 'AntragsDetails', label: 'Status' }]
   Status;
   
   @UI.lineItem: [{ position: 70 }]
-  @UI.fieldGroup: [{ position: 70, qualifier: 'AntragsDetails' }]
+  @UI.fieldGroup: [{ position: 70, qualifier: 'AntragsDetails', label: 'Kommentar' }]
   Kommentar;
 }

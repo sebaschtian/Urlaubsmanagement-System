@@ -4,7 +4,7 @@ strict ( 2 );
 define behavior for ZSP_R_MITARBEITER alias Mitarbeiter
 persistent table zsp_ma_a
 lock master
-authorization master ( instance )
+authorization master ( global )
 //etag master <field_name>
 {
   create;
@@ -12,52 +12,71 @@ authorization master ( instance )
   delete;
 
   field ( readonly, numbering : managed ) MitarbeiterID;
+
+  field ( readonly ) CreatedAt;
+  field ( readonly ) CreatedBy;
+  field ( readonly ) LastChangedAt;
+  field ( readonly ) LastChangedBy;
+
   association _Antrag { create; }
-  association _Urlaub { create; }
+  association _Urlaub;
+  association _Antragsteller;
+  association _Genehmigender;
 
   mapping for zsp_ma_a corresponding
-  {
-   MitarbeiterID = mitarbeiter_uuid;
-   Mitarbeiternummer = mitarbeiter_nummer;
-   Vorname = vorname;
-   Nachname = nachname;
-   Eintrittsdatum = eintrittsdatum;
-   LastChangedBy = last_changed_by;
-   CreatedBy = created_by;
-   CreatedAt = created_at;
-   LastChangedAt = last_changed_at;
-  }
+    {
+      MitarbeiterID     = mitarbeiter_uuid;
+      Mitarbeiternummer = mitarbeiter_nummer;
+      Vorname           = vorname;
+      Nachname          = nachname;
+      Eintrittsdatum    = eintrittsdatum;
+      LastChangedBy     = last_changed_by;
+      CreatedBy         = created_by;
+      CreatedAt         = created_at;
+      LastChangedAt     = last_changed_at;
+    }
 }
 
 define behavior for ZSP_R_ANTRAG alias Antrag
 persistent table zsp_antrag_a
-lock dependent by _Mitarbeiter
-authorization dependent by _Mitarbeiter
+lock dependent by _Antragsteller
+authorization dependent by _Antragsteller
 //etag master <field_name>
 {
   update;
   delete;
 
-  association _Mitarbeiter;
+  association _Antragsteller;
+  association _Genehmigender;
 
-  field ( readonly ) Antragsteller;
-  field ( readonly, numbering : managed) Antrag_ID;
+//  action AbgelehnterAntrag result [1] $self;
+//  action AngenommenerAntrag result [1] $self;
+
+//  validation FreieUrlaubstage on save { create; update;}
+//  validation FreieTageDatum on save { create; update;}
+
+//  determination StatusBestimmen on modify { field GenehmigenderName, Startdatum, Enddatum, Kommentar;}
+//  determination UrlaubstageBestimmen on modify { field Startdatum, Enddatum;}
+
+  field ( readonly ) Antragsteller, CreatedAt, CreatedBy, LastChangedAt, LastChangedBy, Status, Urlaubstage;
+  field ( readonly, numbering : managed ) Antrag_ID;
+  field ( mandatory : create ) Startdatum, Enddatum, Genehmigender;
 
   mapping for zsp_antrag_a corresponding
-  {
-   Antrag_ID = antrag_uuid;
-   Antragsteller = antragsteller_uuid;
-   Genehmigender = genehmigender_uuid;
-   Startdatum = startdatum;
-   Enddatum = enddatum;
-   Urlaubstage = tage;
-   Kommentar = kommentar;
-   Status = status;
-   LastChangedBy = last_changed_by;
-   CreatedBy = created_by;
-   CreatedAt = created_at;
-   LastChangedAt = last_changed_at;
-  }
+    {
+      Antrag_ID     = antrag_uuid;
+      Antragsteller = antragsteller_uuid;
+      Genehmigender = genehmigender_uuid;
+      Startdatum    = startdatum;
+      Enddatum      = enddatum;
+      Urlaubstage   = tage;
+      Kommentar     = kommentar;
+      Status        = status;
+      LastChangedBy = last_changed_by;
+      CreatedBy     = created_by;
+      CreatedAt     = created_at;
+      LastChangedAt = last_changed_at;
+    }
 }
 
 define behavior for ZSP_R_URLAUB //alias <alias_name>
@@ -66,23 +85,26 @@ lock dependent by _Mitarbeiter
 authorization dependent by _Mitarbeiter
 //etag master <field_name>
 {
-  update;
-  delete;
 
   association _Mitarbeiter;
 
   field ( readonly, numbering : managed ) UrlaubID;
   field ( readonly ) Mitarbeiter;
 
+  field ( readonly ) CreatedAt;
+  field ( readonly ) CreatedBy;
+  field ( readonly ) LastChangedAt;
+  field ( readonly ) LastChangedBy;
+
   mapping for zsp_urlaub_a
-  {
-   UrlaubID = urlaub_uuid;
-   Mitarbeiter = mitarbeiter;
-   Jahr = jahr;
-   Urlaubstage = urlaubstage;
-   LastChangedBy = last_changed_by;
-   CreatedBy = created_by;
-   CreatedAt = created_at;
-   LastChangedAt = last_changed_at;
-  }
+    {
+      UrlaubID      = urlaub_uuid;
+      Mitarbeiter   = mitarbeiter;
+      Jahr          = jahr;
+      Urlaubstage   = urlaubstage;
+      LastChangedBy = last_changed_by;
+      CreatedBy     = created_by;
+      CreatedAt     = created_at;
+      LastChangedAt = last_changed_at;
+    }
 }
