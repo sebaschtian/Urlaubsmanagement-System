@@ -7,9 +7,9 @@ lock master
 authorization master ( global )
 //etag master <field_name>
 {
-  create;
-  update;
-  delete;
+    create;
+    update;
+    delete;
 
   field ( readonly, numbering : managed ) MitarbeiterID;
 
@@ -49,18 +49,18 @@ authorization dependent by _Antragsteller
   association _Antragsteller;
   association _Genehmigender;
 
-//  action AbgelehnterAntrag result [1] $self;
-//  action AngenommenerAntrag result [1] $self;
+  action Bereits_Abgelehnt result [1] $self;
+  action Bereits_Zugestimmt result [1] $self;
 
-//  validation FreieUrlaubstage on save { create; update;}
-//  validation FreieTageDatum on save { create; update;}
+  validation ValidiertTage on save { create; update;}
+  validation FreieTageDatum on save { create; update;}
 
-//  determination StatusBestimmen on modify { field GenehmigenderName, Startdatum, Enddatum, Kommentar;}
-//  determination UrlaubstageBestimmen on modify { field Startdatum, Enddatum;}
+  determination StatusBestimmen on modify { field GenehmigenderName, Startdatum, Enddatum, Kommentar;}
+  determination UrlaubstageBestimmen on modify { field Startdatum, Enddatum;}
 
-  field ( readonly ) Antragsteller, CreatedAt, CreatedBy, LastChangedAt, LastChangedBy, Status, Urlaubstage;
   field ( readonly, numbering : managed ) Antrag_ID;
   field ( mandatory : create ) Startdatum, Enddatum, Genehmigender;
+  field ( readonly ) AntragstellerName, GenehmigenderName, Antragsteller, CreatedAt, CreatedBy, LastChangedAt, LastChangedBy, Status, Urlaubstage;
 
   mapping for zsp_antrag_a corresponding
     {
@@ -96,7 +96,7 @@ authorization dependent by _Mitarbeiter
   field ( readonly ) LastChangedAt;
   field ( readonly ) LastChangedBy;
 
-  mapping for zsp_urlaub_a
+  mapping for zsp_urlaub_a corresponding
     {
       UrlaubID      = urlaub_uuid;
       Mitarbeiter   = mitarbeiter;

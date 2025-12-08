@@ -16,7 +16,7 @@ define view entity ZSP_C_ANTRAG
       Enddatum,
       Urlaubstage,
       Kommentar,
-      @Consumption.valueHelpDefinition: [ {entity: { name: 'ZSP_I_StatusVH', element: 'StatusText'} } ]
+      @ObjectModel.text.element: [ 'TextStatus' ]
       Status,
       TextStatus,
 

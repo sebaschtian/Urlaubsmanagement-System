@@ -8,6 +8,9 @@ define root view entity ZSP_R_MITARBEITER
   composition [0..*] of ZSP_R_ANTRAG as _Antrag
   association [1..*] to ZSP_R_ANTRAG as _Antragsteller on $projection.MitarbeiterID = _Antragsteller.Antragsteller
   association [1..*] to ZSP_R_ANTRAG as _Genehmigender on $projection.MitarbeiterID = _Genehmigender.Genehmigender
+  association [1..1] to ZSP_I_VERBRAUCHTETAGE as _verbrauchteUT on $projection.MitarbeiterID = _verbrauchteUT.mitarbeiter
+  association [1..1] to ZSP_I_VERFUGBARETAGE as _verfugbareUT on $projection.MitarbeiterID = _verfugbareUT.Mitarbeiter
+  association [1..1] to ZSP_I_VERPLANTETAGE as _verplanteUT on $projection.MitarbeiterID = _verplanteUT.mitarbeiter
   
 {
   @ObjectModel.text.element: [ 'MitarbeiterName' ]
@@ -28,6 +31,10 @@ define root view entity ZSP_R_MITARBEITER
       _Antrag,
       _Antragsteller,
       _Genehmigender,
+      
+      _verbrauchteUT.VerbrauchteTage as VerbrauchteTage,
+      _verfugbareUT.VerfugbareTage as VerfugbareTage,
+      _verplanteUT.VerplanteTage as VerplanteTage,
       
       _MitarbeiterText.Name as MitarbeiterName
 }

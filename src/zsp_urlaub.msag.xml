@@ -32,6 +32,12 @@
      <MSGNR>004</MSGNR>
      <TEXT>Dieser Antrag wurde bereits Zugestimmt. Antrag nichtmehr bearbeitbar.</TEXT>
     </T100>
+    <T100>
+     <SPRSL>D</SPRSL>
+     <ARBGB>ZSP_URLAUB</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Datum liegt in der Vergangenheit</TEXT>
+    </T100>
    </T100>
   </asx:values>
  </asx:abap>

@@ -13,7 +13,8 @@ annotate entity ZSP_C_MITARBEITER with
     { position: 10, targetQualifier: 'MitarbeiterDetails', label: 'Mitarbeiter Details', type: #FIELDGROUP_REFERENCE },
     { position: 20, targetQualifier: 'AdminData', label: 'Administrative Data', type: #FIELDGROUP_REFERENCE },
     { position: 30, targetElement: '_Urlaub', label: 'Urlaube', type: #LINEITEM_REFERENCE},
-    { position: 40, targetElement: '_Antrag', label: 'Anträge', type: #LINEITEM_REFERENCE}
+    { position: 40, targetElement: '_Antrag', label: 'Anträge', type: #LINEITEM_REFERENCE},
+    { position: 30, targetQualifier: 'Urlaubstage', label: 'Urlaubstage Overview', type: #FIELDGROUP_REFERENCE }
   ]
 
   /* Fields */
@@ -34,5 +35,14 @@ annotate entity ZSP_C_MITARBEITER with
   @UI.lineItem: [{ position: 30 }]
   @UI.fieldGroup: [{ position: 30, qualifier: 'MitarbeiterDetails' }]
   Eintrittsdatum;  
+  
+  @UI.fieldGroup: [{ position: 10, qualifier: 'Urlaubstage', label: 'Verplant'}]
+  VerplanteTage;
+  
+  @UI.fieldGroup: [{ position: 20, qualifier: 'Urlaubstage', label: 'Verfügbar'}]
+  VerfugbareTage;
+    
+  @UI.fieldGroup: [{ position: 30, qualifier: 'Urlaubstage', label: 'Verbraucht'}]
+  VerbrauchteTage;
     
 }

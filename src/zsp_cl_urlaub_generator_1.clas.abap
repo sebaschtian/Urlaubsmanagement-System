@@ -25,8 +25,7 @@ CLASS zsp_cl_urlaub_generator_1 IMPLEMENTATION.
     delete from zsp_antrag_a.
     out->write( |Deleted Antraege: { sy-dbcnt }| ).
 
-
-    "Demodaten Mitarbeiter erstellen"
+ "Demodaten Mitarbeiter erstellen"
     "Mitarbeiter 1 Hans Meier"
     ma-mitarbeiter_uuid = cl_system_uuid=>create_uuid_x16_static(  ).
     ma-client = '001'.
@@ -77,6 +76,59 @@ CLASS zsp_cl_urlaub_generator_1 IMPLEMENTATION.
     data(lv_ma_hans) = mas[ mitarbeiter_nummer = '00001' ]-mitarbeiter_uuid.
     data(lv_ma_lisa) = mas[ mitarbeiter_nummer = '00002' ]-mitarbeiter_uuid.
     data(lv_ma_petra) = mas[ mitarbeiter_nummer = '00003' ]-mitarbeiter_uuid.
+
+ "Demodaten Urlaubanspruch erstellen"
+ "Urlaub 1: Hans Meier 2022"
+    urlaub-urlaub_uuid = cl_system_uuid=>create_uuid_x16_static( ).
+    urlaub-mitarbeiter = lv_ma_hans.
+    urlaub-jahr = '2022'.
+    urlaub-urlaubstage = 30.
+        "Administrative Daten"
+        urlaub-last_changed_by = 'GENERATOR'.
+        urlaub-created_by = 'GENERATOR'.
+        GET TIME STAMP FIELD urlaub-created_at.
+        GET TIME STAMP FIELD urlaub-last_changed_at.
+    APPEND urlaub TO urlaube.
+
+    "Urlaub 2: Hans Meier 2023"
+    urlaub-urlaub_uuid = cl_system_uuid=>create_uuid_x16_static( ).
+    urlaub-mitarbeiter = lv_ma_hans.
+    urlaub-jahr = '2023'.
+    urlaub-urlaubstage = 30.
+        "Administrative Daten"
+        urlaub-last_changed_by = 'GENERATOR'.
+        urlaub-created_by = 'GENERATOR'.
+        GET TIME STAMP FIELD urlaub-created_at.
+        GET TIME STAMP FIELD urlaub-last_changed_at.
+    APPEND urlaub TO urlaube.
+
+    "Urlaub 3: Lisa Müller 2023"
+    urlaub-urlaub_uuid = cl_system_uuid=>create_uuid_x16_static( ).
+    urlaub-mitarbeiter = lv_ma_lisa.
+    urlaub-jahr = '2023'.
+    urlaub-urlaubstage = 30.
+        "Administrative Daten"
+        urlaub-last_changed_by = 'GENERATOR'.
+        urlaub-created_by = 'GENERATOR'.
+        GET TIME STAMP FIELD urlaub-created_at.
+        GET TIME STAMP FIELD urlaub-last_changed_at.
+    APPEND urlaub TO urlaube.
+
+    "Urlaub 4: Petra Schmid"
+    urlaub-urlaub_uuid = cl_system_uuid=>create_uuid_x16_static( ).
+    urlaub-mitarbeiter = lv_ma_petra.
+    urlaub-jahr = '2023'.
+    urlaub-urlaubstage = 7.
+        "Administrative Daten"
+        urlaub-last_changed_by = 'GENERATOR'.
+        urlaub-created_by = 'GENERATOR'.
+        GET TIME STAMP FIELD urlaub-created_at.
+        GET TIME STAMP FIELD urlaub-last_changed_at.
+    APPEND urlaub TO urlaube.
+
+    "Urlaube Einfügen"
+    INSERT ZSP_urlaub_a FROM TABLE @urlaube.
+    out->write( |Insert Urlaube: { sy-dbcnt }| ).
 
     "Urlaubsanträge erstellen"
     "Antrag 1: Hans Meier"
@@ -178,59 +230,6 @@ CLASS zsp_cl_urlaub_generator_1 IMPLEMENTATION.
         "Anträge einfügen"
         insert zsp_antrag_a from table @antraege.
         out->write( |Insert Antraege: { sy-dbcnt }| ).
-
- "Demodaten Urlaubanspruch erstellen"
- "Urlaub 1: Hans Meier 2022"
-    urlaub-urlaub_uuid = cl_system_uuid=>create_uuid_x16_static( ).
-    urlaub-mitarbeiter = lv_ma_hans.
-    urlaub-jahr = '2022'.
-    urlaub-urlaubstage = 30.
-        "Administrative Daten"
-        urlaub-last_changed_by = 'GENERATOR'.
-        urlaub-created_by = 'GENERATOR'.
-        GET TIME STAMP FIELD urlaub-created_at.
-        GET TIME STAMP FIELD urlaub-last_changed_at.
-    APPEND urlaub TO urlaube.
-
-    "Urlaub 2: Hans Meier 2023"
-    urlaub-urlaub_uuid = cl_system_uuid=>create_uuid_x16_static( ).
-    urlaub-mitarbeiter = lv_ma_hans.
-    urlaub-jahr = '2023'.
-    urlaub-urlaubstage = 30.
-        "Administrative Daten"
-        urlaub-last_changed_by = 'GENERATOR'.
-        urlaub-created_by = 'GENERATOR'.
-        GET TIME STAMP FIELD urlaub-created_at.
-        GET TIME STAMP FIELD urlaub-last_changed_at.
-    APPEND urlaub TO urlaube.
-
-    "Urlaub 3: Lisa Müller 2023"
-    urlaub-urlaub_uuid = cl_system_uuid=>create_uuid_x16_static( ).
-    urlaub-mitarbeiter = lv_ma_lisa.
-    urlaub-jahr = '2023'.
-    urlaub-urlaubstage = 30.
-        "Administrative Daten"
-        urlaub-last_changed_by = 'GENERATOR'.
-        urlaub-created_by = 'GENERATOR'.
-        GET TIME STAMP FIELD urlaub-created_at.
-        GET TIME STAMP FIELD urlaub-last_changed_at.
-    APPEND urlaub TO urlaube.
-
-    "Urlaub 4: Petra Schmid"
-    urlaub-urlaub_uuid = cl_system_uuid=>create_uuid_x16_static( ).
-    urlaub-mitarbeiter = lv_ma_petra.
-    urlaub-jahr = '2023'.
-    urlaub-urlaubstage = 7.
-        "Administrative Daten"
-        urlaub-last_changed_by = 'GENERATOR'.
-        urlaub-created_by = 'GENERATOR'.
-        GET TIME STAMP FIELD urlaub-created_at.
-        GET TIME STAMP FIELD urlaub-last_changed_at.
-    APPEND urlaub TO urlaube.
-
-    "Urlaube Einfügen"
-    INSERT ZSP_urlaub_a FROM TABLE @urlaube.
-    out->write( |Insert Urlaube: { sy-dbcnt }| ).
 
   ENDMETHOD.
 ENDCLASS.

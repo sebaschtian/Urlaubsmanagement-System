@@ -32,11 +32,19 @@ annotate entity ZSP_C_ANTRAG with
   @UI.selectionField: [{ position: 20 }]
   @UI.lineItem: [{ position: 30 }]
   @UI.fieldGroup: [{ position: 30, qualifier: 'AntragsDetails', label: 'Antragsteller' }]
+  Antragsteller;
+
+  @UI.lineItem: [{ position: 35 }]
+  @UI.fieldGroup: [{ position: 35, qualifier: 'AntragsDetails', label: 'Antragsteller Name' }]
   AntragstellerName;
 
   @UI.selectionField: [{ position: 30 }]
   @UI.lineItem: [{ position: 40, label: 'Genehmigender' }]
   @UI.fieldGroup: [{ position: 40, qualifier: 'AntragsDetails', label: 'Genehmigender' }]
+  Genehmigender;
+
+  @UI.lineItem: [{ position: 45, label: 'Genehmigender' }]
+  @UI.fieldGroup: [{ position: 45, qualifier: 'AntragsDetails', label: 'Genehmigender' }]
   GenehmigenderName;
 
   @UI.lineItem: [{ position: 50 }]
@@ -51,4 +59,6 @@ annotate entity ZSP_C_ANTRAG with
   @UI.lineItem: [{ position: 70 }]
   @UI.fieldGroup: [{ position: 70, qualifier: 'AntragsDetails', label: 'Kommentar' }]
   Kommentar;
+  
+
 }

@@ -10,6 +10,7 @@ define view entity ZSP_R_URLAUB
 
 {
   key urlaub_uuid     as UrlaubID,
+      @ObjectModel.text.element: [ 'MitarbeiterName' ]
       mitarbeiter     as Mitarbeiter,
       jahr            as Jahr,
       urlaubstage     as Urlaubstage,

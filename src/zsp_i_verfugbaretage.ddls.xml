@@ -3,10 +3,10 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DDLS>
-    <DDLNAME>ZSP_I_STATUSVH</DDLNAME>
+    <DDLNAME>ZSP_I_VERFUGBARETAGE</DDLNAME>
     <DDLANGUAGE>D</DDLANGUAGE>
-    <DDTEXT>Value Help Status</DDTEXT>
-    <SOURCE_TYPE>W</SOURCE_TYPE>
+    <DDTEXT>Interface Verfugbare Tage</DDTEXT>
+    <SOURCE_TYPE>V</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>

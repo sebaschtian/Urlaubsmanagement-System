@@ -28,6 +28,10 @@ provider contract transactional_query
       
       MitarbeiterName,
       
+      VerbrauchteTage,
+      VerfugbareTage,
+      VerplanteTage,
+      
       
       /*Associations*/
       _Urlaub : redirected to composition child ZSP_C_URLAUB,

@@ -6,7 +6,7 @@
     <DDLNAME>ZSP_I_MITARBEITERVH</DDLNAME>
     <DDLANGUAGE>D</DDLANGUAGE>
     <DDTEXT>VH Mitarbeiter</DDTEXT>
-    <SOURCE_TYPE>V</SOURCE_TYPE>
+    <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>
  </asx:abap>

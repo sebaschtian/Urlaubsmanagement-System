@@ -29,6 +29,16 @@ CLASS zsp_cm_mitarbeiter DEFINITION PUBLIC
         END OF ENDEVORSTART.
 
     CONSTANTS:
+        BEGIN OF Datum_verpasst,
+            msgid type symsgid value 'zsp_urlaub',
+            msgno type symsgno value '005',
+            attr1 type scx_attrname value 'Comment',
+            attr2 type scx_attrname value '',
+            attr3 type scx_attrname value '',
+            attr4 type scx_attrname value '',
+        END OF DATUM_VERPASST.
+
+    CONSTANTS:
         BEGIN OF Bereits_Abgelehnt,
             msgid type symsgid value 'zsp_urlaub',
             msgno type symsgno value '003',
