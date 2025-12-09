@@ -3,4 +3,5 @@ define service Zsp_ui_urlaub_1 {
   expose ZSP_C_URLAUB      as Urlaub;
   expose ZSP_C_ANTRAG      as Antrag;
   expose ZSP_C_MITARBEITER as Mitarbeiter;
+  expose ZSP_C_ANTRAG_M    as Manager;
 }

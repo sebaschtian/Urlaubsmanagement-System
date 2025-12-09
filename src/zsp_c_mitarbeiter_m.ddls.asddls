@@ -20,5 +20,5 @@ define root view entity ZSP_C_MITARBEITER_M provider contract transactional_quer
         MitarbeiterName,
         
         /* Associations */
-        _Antrag
+        _Antrag : redirected to composition child zsp_c_antrag_m
 }

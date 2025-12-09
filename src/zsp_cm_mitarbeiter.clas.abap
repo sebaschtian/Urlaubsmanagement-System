@@ -58,6 +58,26 @@ CLASS zsp_cm_mitarbeiter DEFINITION PUBLIC
             attr4 type scx_attrname value '',
         END OF Bereits_Zugestimmt.
 
+    CONSTANTS:
+        BEGIN OF Genehmigt,
+            msgid type symsgid value 'zsp_urlaub',
+            msgno type symsgno value '006',
+            attr1 type scx_attrname value 'Comment',
+            attr2 type scx_attrname value '',
+            attr3 type scx_attrname value '',
+            attr4 type scx_attrname value '',
+        END OF Genehmigt.
+
+    CONSTANTS:
+        BEGIN OF Abgelehnt,
+            msgid type symsgid value 'zsp_urlaub',
+            msgno type symsgno value '007',
+            attr1 type scx_attrname value 'Comment',
+            attr2 type scx_attrname value '',
+            attr3 type scx_attrname value '',
+            attr4 type scx_attrname value '',
+        END OF Abgelehnt.
+
 
     "Attribute
     DATA Comment TYPE STRING.

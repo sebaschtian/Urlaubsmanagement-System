@@ -19,9 +19,9 @@ annotate view ZSP_C_URLAUB with
   @UI.fieldGroup: [{ position: 10, qualifier: 'AdminData' }]
   UrlaubID;
 
-//  @UI.lineItem: [{ position: 10 }]
-//  @UI.fieldGroup: [{ position: 10, qualifier: 'UrlaubDetails' }]
-//  Mitarbeiter;
+  @UI.lineItem: [{ position: 10 }]
+  @UI.fieldGroup: [{ position: 10, qualifier: 'UrlaubDetails' }]
+  Mitarbeiter;
 
   @UI.lineItem: [{ position: 20 }]
   @UI.selectionField: [{ position: 10 }]

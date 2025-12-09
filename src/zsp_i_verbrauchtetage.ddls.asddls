@@ -1,7 +1,7 @@
-@AbapCatalog.sqlViewName: 'ZSP_I_VERBRAUCHT'
+
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Interface Verbrauchte Tage'
-define view ZSP_I_VERBRAUCHTETAGE as select from zsp_antrag_a
+define view entity ZSP_I_VERBRAUCHTETAGE as select from zsp_antrag_a
 {
     antragsteller_uuid as mitarbeiter,
     

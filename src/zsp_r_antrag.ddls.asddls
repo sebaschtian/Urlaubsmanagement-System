@@ -17,6 +17,7 @@ define view entity ZSP_R_ANTRAG
       tage            as Urlaubstage,
       kommentar       as Kommentar,
       status          as Status,
+      
       /* Administrative Daten */
       last_changed_by as LastChangedBy,
       created_by      as CreatedBy,

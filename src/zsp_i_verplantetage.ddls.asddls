@@ -1,7 +1,7 @@
-@AbapCatalog.sqlViewName: 'ZSP_I_VERPLANTE'
+
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Interface der Verplanten Tage'
-define view ZSP_I_VERPLANTETAGE as select from zsp_antrag_a
+define view entity ZSP_I_VERPLANTETAGE as select from zsp_antrag_a
 {
     antragsteller_uuid as mitarbeiter,
     

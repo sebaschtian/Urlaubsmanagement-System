@@ -1,0 +1,18 @@
+projection;
+strict ( 2 );
+
+define behavior for ZSP_C_MITARBEITER_M //alias <alias_name>
+{
+    use association _Antrag;
+
+}
+
+define behavior for ZSP_C_ANTRAG_M {
+
+    use action Urlaub_Zustimmen;
+    use action Urlaub_Ablehnen;
+
+    use association _Antragsteller;
+    use association _Genehmigender;
+
+}

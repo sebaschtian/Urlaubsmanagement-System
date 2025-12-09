@@ -1,7 +1,7 @@
-@AbapCatalog.sqlViewName: 'ZSP_VERFUGBARE'
+
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Interface Verfugbare Tage'
-define view ZSP_I_VERFUGBARETAGE as select from zsp_antrag_a
+define view entity ZSP_I_VERFUGBARETAGE as select from zsp_antrag_a
 
     association [1..1] to ZSP_I_VERPLANTETAGE as _verplantut 
         on $projection.Mitarbeiter = _verplantut.mitarbeiter

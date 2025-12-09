@@ -21,9 +21,13 @@ define root view entity ZSP_R_MITARBEITER
       eintrittsdatum     as Eintrittsdatum,
 
       /* Administrative Daten */
+      @Semantics.user.lastChangedBy: true
       last_changed_by    as LastChangedBy,
+      @Semantics.user.createdBy: true
       created_by         as CreatedBy,
+      @Semantics.systemDateTime.createdAt: true
       created_at         as CreatedAt,
+      @Semantics.systemDateTime.lastChangedAt: true
       last_changed_at    as LastChangedAt,
       
       /*Associations*/

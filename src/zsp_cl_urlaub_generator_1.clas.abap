@@ -118,7 +118,7 @@ CLASS zsp_cl_urlaub_generator_1 IMPLEMENTATION.
     urlaub-urlaub_uuid = cl_system_uuid=>create_uuid_x16_static( ).
     urlaub-mitarbeiter = lv_ma_petra.
     urlaub-jahr = '2023'.
-    urlaub-urlaubstage = 7.
+    urlaub-urlaubstage = 30.
         "Administrative Daten"
         urlaub-last_changed_by = 'GENERATOR'.
         urlaub-created_by = 'GENERATOR'.
