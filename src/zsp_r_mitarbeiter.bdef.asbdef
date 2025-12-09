@@ -49,14 +49,15 @@ authorization dependent by _Antragsteller
   association _Antragsteller;
   association _Genehmigender;
 
-  action Bereits_Abgelehnt result [1] $self;
-  action Bereits_Zugestimmt result [1] $self;
+// METHODEN UND FEHLERTEXTE aus BP
+  action Urlaub_Zustimmen result [1] $self;
+  action Urlaub_Ablehnen result [1] $self;
 
   validation ValidiertTage on save { create; update;}
-  validation FreieTageDatum on save { create; update;}
+  validation Validiert_UTtage on save { create; update;}
 
-  determination StatusBestimmen on modify { field GenehmigenderName, Startdatum, Enddatum, Kommentar;}
-  determination UrlaubstageBestimmen on modify { field Startdatum, Enddatum;}
+  determination Standart_status on modify { field GenehmigenderName, Startdatum, Enddatum, Kommentar;}
+  determination Urlaub_bestimmen on modify { field Startdatum, Enddatum;}
 
   field ( readonly, numbering : managed ) Antrag_ID;
   field ( mandatory : create ) Startdatum, Enddatum, Genehmigender;

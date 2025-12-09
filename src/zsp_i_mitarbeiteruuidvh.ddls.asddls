@@ -1,7 +1,6 @@
-@AbapCatalog.sqlViewName: 'ZSP_MAUUID'
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'VH Mitarbeiter uuid'
-define view ZSP_I_MITARBEITERUUIDVH 
+define view entity ZSP_I_MITARBEITERUUIDVH 
     as select from zsp_ma_a
 {
     @EndUserText: {label: 'Mitarebiter uuid', quickInfo: 'Mitarbeiter uuid'}
